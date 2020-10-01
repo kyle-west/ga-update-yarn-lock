@@ -14,12 +14,19 @@ jobs:
         run: |
           rm yarn.lock
           yarn install
+      - name: Get Date
+        id: date
+        uses: nanzm/get-time-action@v1.0
+        with:
+          timeZone: 6
+          format: 'YYYY-MM-DD'
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
             token: ${{ secrets.PAT }}
             commit-message: Yarn Lockfile Updater
-            title: "[yarn] update lockfile entries"
+            title: "[yarn] update lockfile entries (${{ steps.date.outputs.time }})"
             body: |
-              - Nuke the lockfile and consume the latest of all the things
+              Twice a month our GitHub Actions check for updates to our yarn.lock file. Looks like it found something.
+
             branch: bot/update-lockfile

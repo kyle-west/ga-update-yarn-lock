@@ -1,7 +1,7 @@
 name: Yarn Lockfile Updater
 on:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '0 5 1,15 * *' # 5am on the 1st and 5th of each month
   push:
     branches:
       - master

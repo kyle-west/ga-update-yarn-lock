@@ -12,6 +12,7 @@
     "ip": "^1.1.5"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "prep": "sh ./fake-out-of-date-yarn-lock.sh"
   }
 }

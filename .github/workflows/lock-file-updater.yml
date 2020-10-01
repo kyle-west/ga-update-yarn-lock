@@ -1,7 +1,7 @@
 name: Yarn Lockfile Updater
 on:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '*/3 * * * *'
 jobs:
   update-dep:
     runs-on: ubuntu-latest

@@ -1,0 +1,17 @@
+{
+  "name": "ga-yarn.lock-update-pr",
+  "version": "0.1.0",
+  "description": "Example of how to use GitHub Actions to submit a PR with an updated lockfile",
+  "main": "index.js",
+  "repository": "https://github.com/kyle-west/ga-update-yarn-lock",
+  "author": "kyle-west",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "4.17.0",
+    "ip": "^1.1.5"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

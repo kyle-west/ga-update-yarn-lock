@@ -1,0 +1,25 @@
+name: Yarn Lockfile Updater
+on:
+  schedule:
+    - cron:  '*/5 * * * *'
+jobs:
+  update-dep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Yarn Lockfile Updater
+        run: |
+          rm yarn.lock
+          yarn install
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+            token: ${{ secrets.PAT }}
+            commit-message: Yarn Lockfile Updater
+            title: "[yarn] update lockfile entries"
+            body: |
+              - Nuke the lockfile and consume the latest of all the things
+            branch: bot/update-lockfile

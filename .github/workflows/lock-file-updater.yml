@@ -1,7 +1,7 @@
 name: Yarn Lockfile Updater
-on:
-  schedule:
-    - cron:  '*/5 * * * *'
+on: [push] # push in the meantime so that we can test our changes without waiting
+  # schedule:
+  #   - cron:  '*/5 * * * *'
 jobs:
   update-dep:
     runs-on: ubuntu-latest

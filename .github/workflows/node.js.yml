@@ -1,0 +1,25 @@
+# see https://stackoverflow.com/questions/59560214/github-action-works-on-push-but-not-scheduled
+# multiple people reported not being able to run a cron job until they added a second one. So we have this simple one.
+
+name: Hack not sure why this is needed
+
+on:
+  schedule:
+    - cron:  '0 0 1 1 *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm --version
